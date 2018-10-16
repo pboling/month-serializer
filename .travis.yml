@@ -1,7 +1,7 @@
 env:
   global:
   - JRUBY_OPTS="-Xcli.debug=true --debug"
-  - CC_TEST_REPORTER_ID=
+  - CC_TEST_REPORTER_ID=574f3037b6025eaa588f8cf616243ffe4f0be7fd3d8ab6097f3e76bce407eabf
 
 before_script:
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter

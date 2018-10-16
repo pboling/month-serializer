@@ -1,5 +1,20 @@
 require 'bundler/setup'
+
+# External Gems
+require 'rspec/pending_for'
+require 'rspec/block_is_expected'
+
+begin
+  require 'simplecov'
+  SimpleCov.start
+rescue LoadError
+  # Not loading simplecov for Ruby < 2.2
+end
+
+# This Gem
 require 'month/serializer'
+
+# Setup
 Month.send(:include, Month::Serializer)
 
 RSpec.configure do |config|

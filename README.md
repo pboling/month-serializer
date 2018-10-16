@@ -1,6 +1,8 @@
 # Month::Serializer
 
-This gem allows you to convert [Month objects](https://github.com/timcraft/month) into Integers, and vice versa.  This is useful for serializing into other data structures, like String, or to pass values in JSON, or send as parameters to Resque / Sidekiq jobs (which parameters are only compatible with the basic JSON data types).
+**Integer Serialization Plugin for [Month Gem](https://github.com/timcraft/month)**
+
+Allows you to convert [`Month` objects](https://github.com/timcraft/month/blob/master/lib/month.rb) to `Integer`, and vice versa.  This is useful for serializing Months into other data structures, like `String`, or to pass values in `JSON`, or send as parameters to Resque / Sidekiq jobs (which parameters are [only compatible with simple JSON data types](https://github.com/mperham/sidekiq/wiki/The-Basics#client).  Neither `Date` or `Month` can serialize properly to Resque/Sidekiq jobs.
 
 | Project                 |  Month::Serializer |
 |------------------------ | ----------------------- |
@@ -10,15 +12,12 @@ This gem allows you to convert [Month objects](https://github.com/timcraft/month
 | version                 |  [![Version](https://img.shields.io/gem/v/month-serializer.svg)](https://rubygems.org/gems/month-serializer) |
 | dependencies            |  [![Depfu](https://badges.depfu.com/badges/272ce0df3bc6df5cbea9354e2c3b65af/count.svg)](https://depfu.com/github/pboling/month-serializer?project_id=5614) |
 | continuous integration  |  [![Build Status](https://travis-ci.org/pboling/month-serializer.svg?branch=master)](https://travis-ci.org/pboling/month-serializer) |
-| test coverage           |  [![Test Coverage](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/test_coverage)](https://codeclimate.com/github/pboling/month-serializer/test_coverage) |
-| maintainability         |  [![Maintainability](https://api.codeclimate.com/v1/badges/ca0a12604ecc19f5e76d/maintainability)](https://codeclimate.com/github/pboling/month-serializer/maintainability) |
+| test coverage           |  [![Test Coverage](https://api.codeclimate.com/v1/badges/50241bf0d9c78bcce69e/test_coverage)](https://codeclimate.com/github/pboling/month-serializer/test_coverage) |
+| maintainability         |  [![Maintainability](https://api.codeclimate.com/v1/badges/50241bf0d9c78bcce69e/maintainability)](https://codeclimate.com/github/pboling/month-serializer/maintainability) |
 | code triage             |  [![Open Source Helpers](https://www.codetriage.com/pboling/month-serializer/badges/users.svg)](https://www.codetriage.com/pboling/month-serializer) |
 | homepage                |  [on Github.com][homepage], [on Railsbling.com][blogpage] |
 | documentation           |  [on RDoc.info][documentation] |
 | Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌍 🌎 🌏][peterboling], [🍚][refugees], [➕][gplus], [👼][angellist], [🐛][topcoder], [:shipit:][coderwall], [![Tweet Peter](https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow)][twitter] |
-
-If you only ever want to test subjects wrapped in blocks, and are comfortable with **losing** the standard `is_expected` behavior, see an alternative to this gem [here](https://github.com/christopheraue/ruby-rspec-is_expected_block/).
-
 
 ### Why use Month instead of Date or Time?
 
@@ -45,6 +44,13 @@ Or install it yourself as:
     $ gem install month-serializer
 
 ## Usage
+
+Add this to the bootstrapping process of your app, somewhere after the [`month` gem](https://github.com/timcraft/month) is loaded.
+In Rails, `config/initializers/month-serializer.rb` would be perfect, but Rails is not required.
+
+````ruby
+Month.send(:include, Month::Serializer)
+````
 
 This spec below, copied from the actual test suite, makes usage pretty clear.  Note how the serialized Months as integer increment by one.  If you think about counting time by months this makes sense.  We often speak this way about babies, an 18 month old, or 24 month old.
   
