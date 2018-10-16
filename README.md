@@ -10,7 +10,7 @@ Allows you to convert [`Month` objects](https://github.com/timcraft/month/blob/m
 | license                 |  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) |
 | download rank           |  [![Downloads Today](https://img.shields.io/gem/rd/month-serializer.svg)](https://github.com/pboling/month-serializer) |
 | version                 |  [![Version](https://img.shields.io/gem/v/month-serializer.svg)](https://rubygems.org/gems/month-serializer) |
-| dependencies            |  [![Depfu](https://badges.depfu.com/badges/272ce0df3bc6df5cbea9354e2c3b65af/count.svg)](https://depfu.com/github/pboling/month-serializer?project_id=5614) |
+| dependencies            |  [![Depfu](https://badges.depfu.com/badges/9b99dea566c438afe054a94d464e98ea/count.svg)](https://depfu.com/github/pboling/month-serializer?project_id=6003) |
 | continuous integration  |  [![Build Status](https://travis-ci.org/pboling/month-serializer.svg?branch=master)](https://travis-ci.org/pboling/month-serializer) |
 | test coverage           |  [![Test Coverage](https://api.codeclimate.com/v1/badges/50241bf0d9c78bcce69e/test_coverage)](https://codeclimate.com/github/pboling/month-serializer/test_coverage) |
 | maintainability         |  [![Maintainability](https://api.codeclimate.com/v1/badges/50241bf0d9c78bcce69e/maintainability)](https://codeclimate.com/github/pboling/month-serializer/maintainability) |
