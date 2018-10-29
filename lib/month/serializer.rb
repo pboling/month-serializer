@@ -6,7 +6,6 @@ require 'month'
 class Month
   module Serializer
     def self.included(base)
-      puts "including #{self} into #{base}"
       base.extend ClassMethods
     end
 
